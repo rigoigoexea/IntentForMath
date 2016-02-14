@@ -19,13 +19,11 @@
             </intent-filter>
         </activity>
 
-        <!-- automatically added by android studio for the second activity-->
+        <!-- automatically added by android studio for the second activity -->
         <activity
             android:name=".SecondActivity"
-            android:label="@string/title_activity_second"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:label="@string/title_activity_the_second"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
