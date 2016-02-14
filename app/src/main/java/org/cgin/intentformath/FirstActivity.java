@@ -1,5 +1,6 @@
 package org.cgin.intentformath;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,13 +19,21 @@ public class FirstActivity extends AppCompatActivity {
         setContentView(R.layout.activity_first);
     }
 
-    public void onImplicitButtonClicked(View view){
-        //Debug register for the first button
-        Log.d("estrella galicia", "implicit method in progress");
-    }
+
 
     public void onExplicitButtonClicked(View view){
         //Debug register for the second button
         Log.d("estrella galicia", "explicit method in progress");
+        //Create an object intent assigned to the SecondActivity
+        Intent intent = new Intent(this, SecondActivity.class);
+        //Throw the intent to android, and run the SecondActivity
+        startActivity(intent);
+        //Debug register for throw the second activity
+        Log.d("estrella galicia", "thrown SecondActivity");
+    }
+    public void onImplicitButtonClicked(View view){
+        //Debug register for the first button
+        Log.d("estrella galicia", "implicit method in progress");
+
     }
 }
