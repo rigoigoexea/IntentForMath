@@ -18,7 +18,8 @@
         android:text="@string/ImplicitButton"
         android:id="@+id/button"
         android:onClick="onImplicitButtonClicked"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="62dp"
+        android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -27,9 +28,9 @@
         android:text="@string/ExplcitButton"
         android:id="@+id/button2"
         android:onClick="onExplicitButtonClicked"
-        android:layout_above="@+id/button"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/button"
-        android:layout_marginBottom="86dp" />
+        android:layout_marginTop="76dp" />
 
     <EditText
         android:layout_width="wrap_content"

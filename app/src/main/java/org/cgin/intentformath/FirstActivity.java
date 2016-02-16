@@ -32,7 +32,7 @@ public class FirstActivity extends AppCompatActivity {
         //Throw the intent to android, and run the SecondActivity
         startActivityForResult(intentCall, 31415);
         //Debug register for throw the second activity
-        Log.d("estrella galicia", "thrown SecondActivity");
+        Log.d("estrella galicia", "thrown explicit SecondActivity");
     }
 
     //----------------------------------------------------------------------------------------------
@@ -42,6 +42,12 @@ public class FirstActivity extends AppCompatActivity {
     public void onImplicitButtonClicked(View view){
         //Debug register for the first button
         Log.d("estrella galicia", "implicit method in progress");
+        //Declarated to be catched on the AndroidManifets->SecondActivity
+        Intent intentCall= new Intent("andorid.intent.category.SECONDACTIVITY");
+        //Throw the intent for android, and run the second activity
+        startActivityForResult(intentCall,15143);
+        //Debug register for throw the second activity
+        Log.d("estrella galicia", "thrown explicit SecondActivity");
     }
 
     //----------------------------------------------------------------------------------------------
@@ -50,7 +56,7 @@ public class FirstActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intentRespuesta)
     {
-        if (requestCode == 31415) //the ID from startActivityForResult(nameIntent,ID)
+        if (requestCode == 31415 || requestCode ==15143) //the ID from startActivityForResult(nameIntent,ID)
         {
 
             if (resultCode==RESULT_CANCELED){

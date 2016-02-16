@@ -26,7 +26,7 @@ public class SecondActivity extends AppCompatActivity {
     public void onCalculateButtonClicked (View view){
 
         //Debug register for the calculate button
-        Log.d("estrella galicia", "caluclate button method in progress");
+        Log.d("estrella galicia", "calculate button method in progress");
 
         //Get the objects associated to the two EditText fields
         EditText messageView = (EditText) findViewById(R.id.editText);
@@ -67,11 +67,11 @@ public class SecondActivity extends AppCompatActivity {
     //  In case of press the back button
     //----------------------------------------------------------------------------------------------
 
-    @Override //needs override the previous code
+    @Override //Needs override the previous code
     public void onBackPressed(){
-        //create the intent to return FirstActivity
+        //Create the intent to return FirstActivity
         Intent returnIntent = new Intent();
-        ////Define the requestCode in mode canceled for the method onActivityResult
+        //Define the requestCode in mode canceled for the method onActivityResult
         setResult(RESULT_CANCELED, returnIntent);
         //The activity ends without any info added to the intent
         finish();
