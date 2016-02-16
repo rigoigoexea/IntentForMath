@@ -1,5 +1,6 @@
 package org.cgin.intentformath;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +18,10 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
     }
+
+    //----------------------------------------------------------------------------------------------
+    // Main case button "calculate" pressed
+    //----------------------------------------------------------------------------------------------
 
     public void onCalculateButtonClicked (View view){
 
@@ -47,6 +52,29 @@ public class SecondActivity extends AppCompatActivity {
 
         //Show the calculated string on the debug console before send to the first activity
         Log.d("estrella galicia", "The calculatedStr is " + calculatedStr);
+
+        //Create a new intent to pass the result
+        Intent intentResult = new Intent();
+        //Put  the extra info on the intent
+        intentResult.putExtra("Valor",calculatedStr);
+        //Define the requestCode for the method onActivityResult
+        setResult(RESULT_OK, intentResult);
+        //The activity has already done his job and ends
+        finish();
+
+    }
+    //----------------------------------------------------------------------------------------------
+    //  In case of press the back button
+    //----------------------------------------------------------------------------------------------
+
+    @Override //needs override the previous code
+    public void onBackPressed(){
+        //create the intent to return FirstActivity
+        Intent returnIntent = new Intent();
+        ////Define the requestCode in mode canceled for the method onActivityResult
+        setResult(RESULT_CANCELED, returnIntent);
+        //The activity ends without any info added to the intent
+        finish();
 
     }
 }
