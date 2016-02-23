@@ -20,7 +20,7 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     //----------------------------------------------------------------------------------------------
-    // Main case button "calculate" pressed
+    // Normal case button "calculate" pressed
     //----------------------------------------------------------------------------------------------
 
     public void onCalculateButtonClicked (View view){
@@ -35,6 +35,16 @@ public class SecondActivity extends AppCompatActivity {
         //Get the text from the editable text fields, using the previous objects
         String firstStr = messageView.getText().toString();
         String secondStr = message2View.getText().toString();
+
+        //for case the input vaule is null set a default 0 on the fisrtStr
+        if(firstStr.isEmpty()){
+            firstStr="0";
+        }
+
+        //for case the input vaule is null set a default 0 on the secondStr
+        if(secondStr.isEmpty()){
+            secondStr="0";
+        }
 
         //Show the string procedent from the text fields in the debug console
         Log.d("estrella galicia", "firstStr is " + firstStr);
@@ -53,7 +63,7 @@ public class SecondActivity extends AppCompatActivity {
         //Show the calculated string on the debug console before send to the first activity
         Log.d("estrella galicia", "The calculatedStr is " + calculatedStr);
 
-        //Create a new intent to pass the result
+        //Create a new intent to rturn the result
         Intent intentResult = new Intent();
         //Put  the extra info on the intent
         intentResult.putExtra("Valor",calculatedStr);

@@ -7,4 +7,5 @@
     <string name="introduceNumber">Introduce two numbers in the fields</string>
     <string name="calculateButton">Calculate</string>
     <string name="showText">The result is:</string>
+    <string name="Share">Share</string>
 </resources>

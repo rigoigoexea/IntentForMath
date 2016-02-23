@@ -15,11 +15,14 @@ import android.widget.TextView;
 
 public class FirstActivity extends AppCompatActivity {
 
+    protected String shareStr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
     }
+
     //----------------------------------------------------------------------------------------------
     // Intent Explicit
     //----------------------------------------------------------------------------------------------
@@ -51,6 +54,22 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     //----------------------------------------------------------------------------------------------
+    //  Share button
+    //----------------------------------------------------------------------------------------------
+
+    public void onShareButtonClicked(View view){
+        //create the intent with the propiety ACTION_SEND because we want to send it
+        // to other activity
+        Intent intentShare = new Intent(Intent.ACTION_SEND);
+        //Set the "format" of the extra data we are putting in the intent
+        intentShare.setType("text/plain");
+        //Put the sharedStr
+        intentShare.putExtra(Intent.EXTRA_TEXT,shareStr);
+        //start the intent and android takes the control
+        startActivity(intentShare);
+    }
+
+    //----------------------------------------------------------------------------------------------
     //  Catch the data when the SecondActivity ends
     //----------------------------------------------------------------------------------------------
 
@@ -61,7 +80,7 @@ public class FirstActivity extends AppCompatActivity {
 
             if (resultCode==RESULT_CANCELED){
                 //Debug message to know that there isn't any value on the intent
-                Log.d("estrella galicia", "Recived str to the FirstActivity is cancelled " );
+                Log.d("estrella galicia", "Recived code from the SecondActivity is cancelled " );
             }
 
             if(resultCode==RESULT_OK) {
@@ -81,7 +100,15 @@ public class FirstActivity extends AppCompatActivity {
                 messageView.setVisibility(View.VISIBLE);
                 //Set the given result on the field
                 messageView.setText(calculatedStr);
-            }
+
+                //Create the share button objet to make changes in visibility
+                View buttonShare = findViewById(R.id.button4);
+                //Set the object visible
+                buttonShare.setVisibility(View.VISIBLE);
+                //set the returned string on the protected atribute to take it after by the method
+                //of the button 4, and put the string on the shareIntent
+                shareStr=calculatedStr;
+           }
         }
     }
 }
